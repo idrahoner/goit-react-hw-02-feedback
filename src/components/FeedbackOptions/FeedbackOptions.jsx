@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { capitalizeWord } from 'utils';
 
 export default function FeedbackOptions({ options, onLeaveFeedback }) {
   return (
@@ -9,9 +10,13 @@ export default function FeedbackOptions({ options, onLeaveFeedback }) {
             key={element}
             type="button"
             onClick={onLeaveFeedback}
-            style={{ display: 'inline-block', marginRight: '10px' }}
+            style={{
+              display: 'inline-block',
+              marginRight: '10px',
+              padding: '15px',
+            }}
           >
-            {element}
+            {capitalizeWord(element)}
           </button>
         ))}
       </div>

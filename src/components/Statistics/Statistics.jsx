@@ -1,17 +1,14 @@
 import PropTypes from 'prop-types';
+import { capitalizeWord } from 'utils';
 
-export default function Statistics({
-  good,
-  neutral,
-  bad,
-  total,
-  positivePersentage,
-}) {
+export default function Statistics({ stats, total, positivePersentage }) {
   return (
     <>
-      <p>Good: {good}</p>
-      <p>Neutral: {neutral}</p>
-      <p>Bad: {bad}</p>
+      {Object.entries(stats).map(([name, value]) => (
+        <p key={name}>
+          {capitalizeWord(name)}: {value}
+        </p>
+      ))}
       <p>Total: {total}</p>
       <p>Positive: {positivePersentage}%</p>
     </>
@@ -19,9 +16,11 @@ export default function Statistics({
 }
 
 Statistics.propTypes = {
-  good: PropTypes.number.isRequired,
-  neutral: PropTypes.number.isRequired,
-  bad: PropTypes.number.isRequired,
+  stats: PropTypes.shape({
+    good: PropTypes.number.isRequired,
+    neutral: PropTypes.number.isRequired,
+    bad: PropTypes.number.isRequired,
+  }),
   total: PropTypes.number.isRequired,
   positivePersentage: PropTypes.number.isRequired,
 };
