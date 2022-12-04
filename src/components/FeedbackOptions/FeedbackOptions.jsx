@@ -9,7 +9,7 @@ export default function FeedbackOptions({ options, onLeaveFeedback }) {
             key={element}
             type="button"
             onClick={onLeaveFeedback}
-            styles={{ marginRight: '10px' }}
+            style={{ display: 'inline-block', marginRight: '10px' }}
           >
             {element}
           </button>
