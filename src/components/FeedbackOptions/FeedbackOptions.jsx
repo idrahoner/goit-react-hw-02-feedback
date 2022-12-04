@@ -13,7 +13,6 @@ export default function FeedbackOptions({ options, onLeaveFeedback }) {
             style={{
               display: 'inline-block',
               marginRight: '10px',
-              padding: '15px',
             }}
           >
             {capitalizeWord(element)}

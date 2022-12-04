@@ -1,14 +1,29 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Section from 'components/Section';
 import FeedbackOptions from 'components/FeedbackOptions';
 import Statistics from 'components/Statistics';
 
 export class App extends React.Component {
+  static defaultProps = {
+    initialValue: {
+      good: 0,
+      neutral: 0,
+      bad: 0,
+    },
+  };
+
+  static propTypes = {
+    initialValue: PropTypes.shape({
+      good: PropTypes.number.isRequired,
+      neutral: PropTypes.number,
+      bad: PropTypes.number,
+    }),
+  };
+
   state = {
-    good: 0,
-    neutral: 0,
-    bad: 0,
+    ...this.props.initialValue,
   };
 
   handleFeedback = event => {
@@ -31,6 +46,7 @@ export class App extends React.Component {
   };
 
   render() {
+    console.log(this.props.initialValue);
     return (
       <>
         <Section title="Please leave your feedback">
