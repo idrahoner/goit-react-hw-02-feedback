@@ -46,7 +46,6 @@ export class App extends React.Component {
   };
 
   render() {
-    console.log(this.props.initialValue);
     return (
       <>
         <Section title="Please leave your feedback">
