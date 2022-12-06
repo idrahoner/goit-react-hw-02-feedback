@@ -1,16 +1,22 @@
 import PropTypes from 'prop-types';
-import { capitalizeWord } from 'utils';
+import { capitalizeString } from 'utils';
 
 export default function Statistics({ stats, total, positivePersentage }) {
   return (
     <>
-      {Object.entries(stats).map(([name, value]) => (
-        <p key={name}>
-          {capitalizeWord(name)}: {value}
-        </p>
-      ))}
-      <p>Total: {total}</p>
-      <p>Positive: {positivePersentage}%</p>
+      {total ? (
+        <div>
+          {Object.entries(stats).map(([name, value]) => (
+            <p key={name}>
+              {capitalizeString(name)}: {value}
+            </p>
+          ))}
+          <p>Total: {total}</p>
+          <p>Positive: {positivePersentage}%</p>
+        </div>
+      ) : (
+        <p>No feedback given</p>
+      )}
     </>
   );
 }

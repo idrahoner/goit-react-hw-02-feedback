@@ -1,3 +1,3 @@
-export function capitalizeWord(word) {
+export function capitalizeString(word) {
   return word.replace(word[0], word[0].toUpperCase());
 }

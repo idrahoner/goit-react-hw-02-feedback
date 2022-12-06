@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { capitalizeWord } from 'utils';
+import { capitalizeString } from 'utils';
 
 export default function FeedbackOptions({ options, onLeaveFeedback }) {
   return (
@@ -15,7 +15,7 @@ export default function FeedbackOptions({ options, onLeaveFeedback }) {
               marginRight: '10px',
             }}
           >
-            {capitalizeWord(element)}
+            {capitalizeString(element)}
           </button>
         ))}
       </div>
