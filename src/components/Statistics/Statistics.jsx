@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { capitalizeString } from 'utils';
+import css from './Statistics.module.css';
 
 export default function Statistics({ stats, total, positivePersentage }) {
   return (
@@ -7,15 +8,15 @@ export default function Statistics({ stats, total, positivePersentage }) {
       {total ? (
         <div>
           {Object.entries(stats).map(([name, value]) => (
-            <p key={name}>
+            <p key={name} className={css.statisticsItem}>
               {capitalizeString(name)}: {value}
             </p>
           ))}
-          <p>Total: {total}</p>
-          <p>Positive: {positivePersentage}%</p>
+          <p className={css.statisticsItem}>Total: {total}</p>
+          <p className={css.statisticsItem}>Positive: {positivePersentage}%</p>
         </div>
       ) : (
-        <p>No feedback given</p>
+        <p className={css.statisticsItem}>No feedback given</p>
       )}
     </>
   );

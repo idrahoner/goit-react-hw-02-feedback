@@ -1,19 +1,17 @@
 import PropTypes from 'prop-types';
 import { capitalizeString } from 'utils';
+import css from './FeedbackOptions.module.css';
 
 export default function FeedbackOptions({ options, onLeaveFeedback }) {
   return (
     <>
-      <div>
+      <div className={css.feedbackInterface}>
         {options.map(element => (
           <button
             key={element}
             type="button"
             onClick={onLeaveFeedback}
-            style={{
-              display: 'inline-block',
-              marginRight: '10px',
-            }}
+            className={css.feedbackButton}
           >
             {capitalizeString(element)}
           </button>
