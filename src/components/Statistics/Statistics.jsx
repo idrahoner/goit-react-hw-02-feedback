@@ -4,21 +4,15 @@ import css from './Statistics.module.css';
 
 export default function Statistics({ stats, total, positivePersentage }) {
   return (
-    <>
-      {total ? (
-        <div>
-          {Object.entries(stats).map(([name, value]) => (
-            <p key={name} className={css.statisticsItem}>
-              {capitalizeString(name)}: {value}
-            </p>
-          ))}
-          <p className={css.statisticsItem}>Total: {total}</p>
-          <p className={css.statisticsItem}>Positive: {positivePersentage}%</p>
-        </div>
-      ) : (
-        <p className={css.statisticsItem}>No feedback given</p>
-      )}
-    </>
+    <div>
+      {Object.entries(stats).map(([name, value]) => (
+        <p key={name} className={css.statisticsItem}>
+          {capitalizeString(name)}: {value}
+        </p>
+      ))}
+      <p className={css.statisticsItem}>Total: {total}</p>
+      <p className={css.statisticsItem}>Positive: {positivePersentage}%</p>
+    </div>
   );
 }
 

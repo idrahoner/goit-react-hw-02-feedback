@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Section from 'components/Section';
 import FeedbackOptions from 'components/FeedbackOptions';
 import Statistics from 'components/Statistics';
+import Notification from 'components/Notification';
 
 export class App extends React.Component {
   static defaultProps = {
@@ -46,6 +47,8 @@ export class App extends React.Component {
   };
 
   render() {
+    const totalFeedbacks = this.countTotalFeedback();
+    const positivePercentage = this.countPositiveFeedbackPercentage();
     return (
       <>
         <Section title="Please leave your feedback">
@@ -55,11 +58,15 @@ export class App extends React.Component {
           />
         </Section>
         <Section title="Statistics">
-          <Statistics
-            stats={this.state}
-            total={this.countTotalFeedback()}
-            positivePersentage={this.countPositiveFeedbackPercentage()}
-          />
+          {totalFeedbacks ? (
+            <Statistics
+              stats={this.state}
+              total={totalFeedbacks}
+              positivePersentage={positivePercentage}
+            />
+          ) : (
+            <Notification message="No feedbacks given" />
+          )}
         </Section>
       </>
     );
